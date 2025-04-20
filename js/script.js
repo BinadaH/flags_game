@@ -1,5 +1,6 @@
 let currentFlag = null;
 let currMode = null
+let mode_countries = []
 
 const flagImg = document.getElementById("flag");
 const optionsDiv = document.getElementById("options");
@@ -18,12 +19,13 @@ function shuffle(array) {
 
 function loadFlag() {
 	// pick a random flag
-	currentFlag = country_data[Math.floor(Math.random() * country_data.length)];
+
+	currentFlag = mode_countries[Math.floor(Math.random() * mode_countries.length)];
 	flagImg.src = currentFlag.flag_img;
 	resultText.textContent = "";
 
 	// pick 3 other random (wrong) flags
-	const otherFlags = country_data.filter(f => f.name !== currentFlag.name);
+	const otherFlags = mode_countries.filter(f => f.name !== currentFlag.name);
 	const randomWrongAnswers = shuffle(otherFlags).slice(0, 3);
 
 	// mix correct + wrong options
@@ -58,8 +60,14 @@ function loadFlag() {
 
 function set_current_mode(mode) {
 	currMode = mode;
+	if (mode == "All"){
+		mode_countries = country_data;		
+	}
+	else{
+		mode_countries = country_data.filter(f => f.continent == mode);
+	}
+	console.log(mode_countries)
 	mode_selector.style.display = "none";
 	game_container.style.display = "flex";
+	loadFlag();
 }
-
-loadFlag();
