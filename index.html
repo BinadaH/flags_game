@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flag Quiz Game</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2a9d8f" />
+  <link rel="icon" href="icons/icon_192.png" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Flag Quiz" />
+  <link rel="apple-touch-icon" href="icons/icon_192.png" />
+</head>
+
+<body>
+
+  <div class="mode-selector" id="modesel">
+    <h1>Guess the Flag!</h1>
+    <button onclick="set_current_mode('Europe')">Europe</button>
+    <button onclick="set_current_mode('Asia')">Asia</button>
+    <button onclick="set_current_mode('North America')">North America</button>
+    <button onclick="set_current_mode('South America')">South America</button>
+    <button onclick="set_current_mode('Oceania')">Oceania</button>
+    <button onclick="set_current_mode('Africa')">Africa</button>
+    <button onclick="set_current_mode('Africa')">All</button>
+  </div>
+
+  <div class="game-container" id="gamecont">
+    <!-- <button class="back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button> -->
+    <img id="flag" src="" alt="Country Flag" />
+
+    <div id="options"></div>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="js/country_data.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker error:', err));
+    }
+  </script>
+</body>
+
+</html>
