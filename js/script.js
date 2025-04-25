@@ -129,16 +129,22 @@ function showProgress() {
 
 	progress.innerHTML = "";
 	let c = Object.keys(progress_data);
+	c.sort((a, b)=> (progress_data[a].flag_correct > progress_data[b].flag_correct) ? 1 : -1);
+
+
+	let table = document.createElement("ul");
+	table.classList.add("progress-table");
 	for (let i = 0; i < c.length; i++) {
 		// let node = document.createElement("div");
-		let p = document.createElement("p");
+		let p = document.createElement("li");
 
 		let d = progress_data[c[i]];
 		let per = d.flag_correct / d.flag_times;
 		p.innerHTML = `${c[i]}: ${per * 100}%`
 
-		progress.appendChild(p);
+		table.appendChild(p);
 	}
+	progress.appendChild(table);
 	if (c.length > 0){
 		let b = document.createElement("button");
 		b.innerHTML = "Study";

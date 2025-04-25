@@ -68,20 +68,21 @@ body {
     }
 }
 
-.progress{
+.progress {
     display: none;
 
-    button{
+    button {
         background-color: var(--one_dark);
         color: var(--light);
         font-size: 1em;
 
-        &:hover{
+        &:hover {
             text-decoration: none;
             filter: brightness(1.5);
         }
     }
 }
+
 .game-container {
     display: none;
 
@@ -171,4 +172,28 @@ button:hover {
 
 .progress {
     display: none;
+
+
 }
+
+.progress-table {
+    list-style: none;
+    padding: 0;
+    overflow-y: scroll;
+
+    li {
+        background-color: var(--two_light);
+        margin-bottom: 10px;
+        min-height: 2em;
+        padding: 2px;
+        text-align: center;
+        border: 2px solid var(--one_light);
+        transition: background-color 0.3s ease;
+    }
+
+}
+
+
+
+
+
