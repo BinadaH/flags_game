@@ -18,18 +18,27 @@
 
 <body>
 
-  <div class="mode-selector" id="modesel">
-    <h1>Guess the Flag!</h1>
-    <button onclick="set_current_mode('Europe')">Europe</button>
-    <button onclick="set_current_mode('Asia')">Asia</button>
-    <button onclick="set_current_mode('North America')">North America</button>
-    <button onclick="set_current_mode('South America')">South America</button>
-    <button onclick="set_current_mode('Oceania')">Oceania</button>
-    <button onclick="set_current_mode('Africa')">Africa</button>
-    <button onclick="set_current_mode('All')">All</button>
+  <div class="nav">
+    <button onclick="showMode()">Mode</button>
+    <button onclick="showProgress()">Progress</button>
   </div>
 
-  <div class="game-container" id="gamecont">
+  <div class="box progress" id="progress"></div>
+
+  <div class="box mode-selector" id="modesel">
+    <h1>Guess the Flag!</h1>
+    <div class="selection">
+      <button onclick="set_current_mode('All')">All</button>
+      <button onclick="set_current_mode('Africa')">Africa</button>
+      <button onclick="set_current_mode('Asia')">Asia</button>
+      <button onclick="set_current_mode('Europe')">Europe</button>
+      <button onclick="set_current_mode('North America')">North America</button>
+      <button onclick="set_current_mode('Oceania')">Oceania</button>
+      <button onclick="set_current_mode('South America')">South America</button>
+    </div>
+  </div>
+
+  <div class="box game-container" id="gamecont">
     <!-- <button class="back">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -42,6 +51,8 @@
 
     <p id="result"></p>
   </div>
+
+  <div class="progress" id="progress"></div>
 
   <script src="js/country_data.js"></script>
   <script src="js/script.js"></script>
